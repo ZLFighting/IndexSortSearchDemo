@@ -1,0 +1,35 @@
+//
+//  PrefixHeader.pch
+//  IndexSortSearchDemo
+//
+//  Created by ZL on 2017/6/21.
+//  Copyright © 2017年 ZL. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "UIView+ZLExtension.h"
+
+#import "ZLConst.h"
+
+
+
+
+
+// 日志输出
+#ifdef DEBUG //测试 处于开发阶段
+
+// 真机打印测试
+#define ZLString [NSString stringWithFormat:@"%s", __FILE__].lastPathComponent
+#define ZLLog(...) printf("%s 第%d行: %s\n\n", [ZLString UTF8String] ,__LINE__, [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
+
+#else //发布 处于发布阶段
+#define ZLLog(...)
+#endif
+
+
+#endif /* PrefixHeader_pch */
